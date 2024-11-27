@@ -12,11 +12,13 @@ if __name__ == '__main__':
     sys.excepthook = except_hook
 
     app = QApplication(sys.argv)
-    # Создаем экземпляры всех нужных классов и передаем их друг другу через аргументы
-    # Так, например, класс окна аутентификации (AuthWidget) будет вызывать метод next.do() аргумента next,
-    # где next - экземпляр класса виджета главного меню (MainMenuWidget)
+    # Объявляем экземпляры всех мспользуемых классов и передаем их друг другу через аргументы
+    # Так, класс окна аутентификации (AuthWidget) будет создавать экземпляр интерфейса next,
+    # где next - класс виджета главного меню (MainMenuWidget)
     auther = wdt.AuthWidget(wdt.MainMenuWidget, wdt.ProgramInfoWidget, wdt.LeaderboardWidget, wdt.BlackJackWidget)
     auther.show()
+    # todo: передать логгер
+    # todo: собственно логировать события
 
     sys.exit(app.exec())
     
