@@ -18,7 +18,8 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
-    <string notr="true">background-color:rgb(1,55,122);</string>
+    <string notr="true">background-color:rgb(1,55,122);
+background-color: rgb(5, 30, 139);</string>
    </property>
    <widget class="QWidget" name="form_widget" native="true">
     <property name="geometry">
