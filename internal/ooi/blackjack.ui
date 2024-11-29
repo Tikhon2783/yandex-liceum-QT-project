@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: &quot;dark blue";;</string>
+   <string notr="true">background-color: rgb(0, 77, 0);;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="spushButton">
