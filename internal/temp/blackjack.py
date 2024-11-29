@@ -13,7 +13,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(900, 650)
-        MainWindow.setStyleSheet("background-color: \"dark blue\";;")
+        MainWindow.setStyleSheet("background-color: rgb(0, 77, 0);;")
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.spushButton = QtWidgets.QPushButton(parent=self.centralwidget)
@@ -120,3 +120,4 @@ class Ui_MainWindow(object):
         self.dlabel.setText(_translate("MainWindow", "Соперник"))
         self.plabel.setText(_translate("MainWindow", "Игрок"))
         self.standButton.setText(_translate("MainWindow", "Закончить"))
+        
