@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'Main_ui.ui'
+# Form implementation generated from reading ui file 'meenyoo.ui'
 #
 # Created by: PyQt6 UI code generator 6.7.1
 #
@@ -12,7 +12,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_Blackjack(object):
     def setupUi(self, Blackjack):
         Blackjack.setObjectName("Blackjack")
-        Blackjack.resize(485, 644)
+        Blackjack.resize(487, 645)
         Blackjack.setStyleSheet("background-color: rgb(0, 93, 0);")
         self.centralwidget = QtWidgets.QWidget(parent=Blackjack)
         self.centralwidget.setObjectName("centralwidget")
@@ -67,9 +67,20 @@ class Ui_Blackjack(object):
         self.Photo.setText("")
         self.Photo.setPixmap(QtGui.QPixmap("images (1).jpg"))
         self.Photo.setObjectName("Photo")
+        self.pushButton = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.pushButton.setGeometry(QtCore.QRect(160, 550, 151, 31))
+        font = QtGui.QFont()
+        font.setFamily("Noto Serif Cond")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setItalic(True)
+        font.setWeight(75)
+        self.pushButton.setFont(font)
+        self.pushButton.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.pushButton.setObjectName("pushButton")
         Blackjack.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=Blackjack)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 485, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 487, 21))
         self.menubar.setObjectName("menubar")
         Blackjack.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(parent=Blackjack)
@@ -87,3 +98,4 @@ class Ui_Blackjack(object):
         self.Begin_game.setText(_translate("Blackjack", " Начать игру"))
         self.Records.setText(_translate("Blackjack", "Таблица рекордов"))
         self.Settings.setText(_translate("Blackjack", "Настройки"))
+        self.pushButton.setText(_translate("Blackjack", "Правила"))
