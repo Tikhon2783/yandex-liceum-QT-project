@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'leedeerbhoord.ui'
+# Form implementation generated from reading ui file 'internal/ooi/leedeerbhoord.ui'
 #
 # Created by: PyQt6 UI code generator 6.7.1
 #
@@ -23,7 +23,8 @@ class Ui_records(object):
         font.setFamily("Noto Serif Cond")
         font.setPointSize(14)
         self.table_of_widgets.setFont(font)
-        self.table_of_widgets.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.table_of_widgets.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0)")
         self.table_of_widgets.setObjectName("table_of_widgets")
         self.table_of_widgets.setColumnCount(3)
         self.table_of_widgets.setRowCount(10)
@@ -68,22 +69,12 @@ class Ui_records(object):
         font.setItalic(True)
         font.setWeight(75)
         self.records_label.setFont(font)
-        self.records_label.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.records_label.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0)")
         self.records_label.setObjectName("records_label")
-        self.to_start = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.to_start.setGeometry(QtCore.QRect(490, 670, 101, 23))
-        font = QtGui.QFont()
-        font.setFamily("Noto Serif Cond")
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setItalic(True)
-        font.setWeight(75)
-        self.to_start.setFont(font)
-        self.to_start.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.to_start.setObjectName("to_start")
         records.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=records)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 619, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 619, 26))
         self.menubar.setObjectName("menubar")
         records.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(parent=records)
@@ -126,4 +117,3 @@ class Ui_records(object):
         self.table_of_widgets.setSortingEnabled(False)
         self.table_of_widgets.setSortingEnabled(__sortingEnabled)
         self.records_label.setText(_translate("records", "                 Таблица рекордов"))
-        self.to_start.setText(_translate("records", "К началу"))

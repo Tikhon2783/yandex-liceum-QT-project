@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>487</width>
+    <width>521</width>
     <height>645</height>
    </rect>
   </property>
@@ -17,7 +17,7 @@
    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;https://www.liveabout.com/thmb/_CkaBejGkMkOZl2fs1uwslQrOVk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/winning-blackjack-hand-on-casino-table-520257696-58979c263df78caebc19a6e7.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(0, 93, 0);</string>
+   <string notr="true">background-color: rgb(0, 76, 0);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="MainLabel">
@@ -39,12 +39,15 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);
+     <string notr="true">background-color: rgb(0, 77, 0);
 border-top-color: rgb(255, 255, 255);
- </string>
+color: rgb(0, 0, 0)</string>
     </property>
     <property name="text">
-     <string>   ДОБРО ПОЖАЛОВАТЬ В BLACKJACK!</string>
+     <string>   ДОБРО ПОЖАЛОВАТЬ!</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QPushButton" name="Begin_game">
@@ -58,15 +61,16 @@ border-top-color: rgb(255, 255, 255);
     </property>
     <property name="font">
      <font>
-      <family>Noto Serif Cond</family>
+      <family>MS Shell Dlg 2</family>
       <pointsize>12</pointsize>
-      <weight>75</weight>
-      <italic>true</italic>
-      <bold>true</bold>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
+     <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
     </property>
     <property name="text">
      <string> Начать игру</string>
@@ -83,15 +87,17 @@ border-top-color: rgb(255, 255, 255);
     </property>
     <property name="font">
      <font>
-      <family>Noto Serif Cond</family>
+      <family>MS Shell Dlg 2</family>
       <pointsize>12</pointsize>
-      <weight>75</weight>
-      <italic>true</italic>
-      <bold>true</bold>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
+     <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
+</string>
     </property>
     <property name="text">
      <string>Таблица рекордов</string>
@@ -108,18 +114,19 @@ border-top-color: rgb(255, 255, 255);
     </property>
     <property name="font">
      <font>
-      <family>Noto Serif Cond</family>
+      <family>MS Shell Dlg 2</family>
       <pointsize>12</pointsize>
-      <weight>75</weight>
-      <italic>true</italic>
-      <bold>true</bold>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
+     <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
     </property>
     <property name="text">
-     <string>Настройки</string>
+     <string notr="true">О программе</string>
     </property>
    </widget>
    <widget class="QLabel" name="Photo">
@@ -149,15 +156,16 @@ border-top-color: rgb(255, 255, 255);
     </property>
     <property name="font">
      <font>
-      <family>Noto Serif Cond</family>
+      <family>MS Shell Dlg 2</family>
       <pointsize>12</pointsize>
-      <weight>75</weight>
-      <italic>true</italic>
-      <bold>true</bold>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
+     <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
     </property>
     <property name="text">
      <string>Правила</string>
@@ -169,8 +177,8 @@ border-top-color: rgb(255, 255, 255);
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>487</width>
-     <height>21</height>
+     <width>521</width>
+     <height>26</height>
     </rect>
    </property>
   </widget>
