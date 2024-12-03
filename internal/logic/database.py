@@ -7,7 +7,12 @@ class Database():
           self.conn = sqlite3.connect(filepath)
           self.cur = self.conn.cursor()
         except Exception as err:
-          raise Exception('Error trying to connecto to a database:', err)
+          try:
+             open(filepath, 'w').close()
+             self.conn = sqlite3.connect(filepath)
+             self.cur = self.conn.cursor()
+          except Exception as err:
+             raise Exception('Error trying to connecto to a database:', err)
     
     def register_user(self, username, password):
        psw_hash = sha256(password.encode()).hexdigest()

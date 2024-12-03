@@ -37,7 +37,5 @@ if __name__ == '__main__':
     # todo: собственно логировать события
 
     exit_status = app.exec()
-    with open(ludomania_rates_filepath, 'w', encoding='utf8'):
-        pass
     auther.ctx.db.conn.close()
     sys.exit(exit_status)

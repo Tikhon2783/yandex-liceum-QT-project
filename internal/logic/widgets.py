@@ -2,11 +2,8 @@ from PyQt6.QtWidgets import QMainWindow, QWidget, QDialog, QErrorMessage, QTable
 from PyQt6.QtGui import QPainter, QPen, QImage, QPixmap, QPalette, QColor
 from PyQt6.QtCore import Qt, QTimer
 
-from csv import DictReader
-import datetime as dt
 from math import pi, sin, cos
 from itertools import chain
-from hashlib import sha256
 
 import internal.ooi.aooth as auth_ooi
 import internal.ooi.meenyoo as menu_ooi
@@ -91,13 +88,6 @@ class AuthWidget(QMainWindow, auth_ooi.Ui_MainWindow):
     def grant_access(self, username):
         global _
         self.ctx.username = username
-        username_hash = sha256(username.encode()).hexdigest()
-        now = dt.datetime.now()
-        with open(self.ctx.timesfilepath, encoding='utf8') as f:
-            for row in DictReader(f, ['username_hash', 'time'], delimiter=';'):
-                if row['username_hash'] == username_hash:
-                    absense_time = dt.datetime.strptime('%f', row['time']) - now
-                    break
 
         _ = DrawStar()
         QTimer.singleShot(1500, self.proceed)
