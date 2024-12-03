@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(0, 77, 0);;</string>
+   <string notr="true">background-color: rgb(1, 67, 30);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="dealerCard1">
@@ -308,11 +308,15 @@
          <pointsize>10</pointsize>
          <weight>75</weight>
          <bold>true</bold>
+         <kerning>true</kerning>
         </font>
        </property>
+       <property name="focusPolicy">
+        <enum>Qt::StrongFocus</enum>
+       </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(4, 26, 120);
-color: rgb(0, 77, 0);</string>
+        <string notr="true">background-color: rgb(1, 38, 67);
+color: rgb(243, 198, 32);</string>
        </property>
        <property name="text">
         <string>Начать заново</string>
@@ -335,8 +339,8 @@ color: rgb(0, 77, 0);</string>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(4, 26, 120);
-color: rgb(0, 77, 0);</string>
+        <string notr="true">background-color: rgb(1, 38, 67);
+color: rgb(243, 198, 32);</string>
        </property>
        <property name="text">
         <string>Взять карту</string>
@@ -359,8 +363,8 @@ color: rgb(0, 77, 0);</string>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(4, 26, 120);
-color: rgb(0, 77, 0);</string>
+        <string notr="true">background-color: rgb(1, 38, 67);
+color: rgb(243, 198, 32);</string>
        </property>
        <property name="text">
         <string>Остановиться</string>

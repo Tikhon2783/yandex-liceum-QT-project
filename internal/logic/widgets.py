@@ -10,7 +10,7 @@ from itertools import chain
 import internal.ooi.aooth as auth_ooi
 import internal.ooi.meenyoo as menu_ooi
 import internal.ooi.blakejake as bj_ooi
-import internal.ooi.eenfoo as info_ooi
+import internal.ooi.aoothors as info_ooi
 import internal.ooi.leedeerbhoord as lb_ui
 import internal.ooi.eenfoo as rules_ui
 import internal.logic.games as games
@@ -119,11 +119,11 @@ class MainMenuWidget(QMainWindow, menu_ooi.Ui_Blackjack):
         self.bj_widget = games_widgets[0](ctx, games.Blackjack([], []))
         self.info_widget = info_widget(ctx)
         self.lb_widget = leaderboard_widget(ctx)
-        self.rules_widget = rules_widget
+        self.rules_widget = rules_widget(ctx)
 
         self.Begin_game.clicked.connect(self.StartBlackJack)
         self.Settings.clicked.connect(self.about)
-        self.pushButton.clicked.connect(self.about)
+        self.pushButton.clicked.connect(self.rules)
         self.Records.clicked.connect(self.leaderboard)
     
     def StartBlackJack(self):
@@ -148,7 +148,7 @@ class Rules(QMainWindow, rules_ui.Ui_MainWindow):
         self.setupUi(self)  # Загружаем дизайн
 
 # Виджет окна "О программе"
-class ProgramInfoWidget(QMainWindow, info_ooi.Ui_MainWindow):
+class ProgramInfoWidget(QMainWindow, info_ooi.Ui_about):
     def __init__(self, ctx):
         super().__init__()
         self.setupUi(self)  # Загружаем дизайн

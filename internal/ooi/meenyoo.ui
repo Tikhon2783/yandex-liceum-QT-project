@@ -17,34 +17,35 @@
    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;https://www.liveabout.com/thmb/_CkaBejGkMkOZl2fs1uwslQrOVk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/winning-blackjack-hand-on-casino-table-520257696-58979c263df78caebc19a6e7.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(0, 76, 0);</string>
+   <string notr="true">background-color: rgb(1, 67, 30);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="MainLabel">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>10</y>
-      <width>291</width>
-      <height>31</height>
+      <x>60</x>
+      <y>0</y>
+      <width>411</width>
+      <height>81</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Noto Serif Cond</family>
-      <pointsize>12</pointsize>
-      <weight>75</weight>
-      <italic>true</italic>
-      <bold>true</bold>
+      <family>MS Serif</family>
+      <pointsize>19</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+      <underline>false</underline>
+      <stylestrategy>PreferDefault</stylestrategy>
+      <kerning>true</kerning>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(0, 77, 0);
-border-top-color: rgb(255, 255, 255);
-color: rgb(0, 0, 0)</string>
+     <string notr="true">color: rgb(243, 198, 32);</string>
     </property>
     <property name="text">
-     <string>   ДОБРО ПОЖАЛОВАТЬ!</string>
+     <string>ДОБРО ПОЖАЛОВАТЬ!</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -69,8 +70,8 @@ color: rgb(0, 0, 0)</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);
-color: rgb(0, 0, 0);</string>
+     <string notr="true">background-color: rgb(1, 38, 67);
+color: rgb(243, 198, 32);</string>
     </property>
     <property name="text">
      <string> Начать игру</string>
@@ -95,9 +96,8 @@ color: rgb(0, 0, 0);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);
-color: rgb(0, 0, 0);
-</string>
+     <string notr="true">background-color: rgb(1, 38, 67);
+color: rgb(243, 198, 32);</string>
     </property>
     <property name="text">
      <string>Таблица рекордов</string>
@@ -122,8 +122,8 @@ color: rgb(0, 0, 0);
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);
-color: rgb(0, 0, 0);</string>
+     <string notr="true">background-color: rgb(1, 38, 67);
+color: rgb(243, 198, 32);</string>
     </property>
     <property name="text">
      <string notr="true">О программе</string>
@@ -132,8 +132,8 @@ color: rgb(0, 0, 0);</string>
    <widget class="QLabel" name="Photo">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>80</y>
+      <x>120</x>
+      <y>110</y>
       <width>281</width>
       <height>171</height>
      </rect>
@@ -142,7 +142,7 @@ color: rgb(0, 0, 0);</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>images (1).jpg</pixmap>
+     <pixmap>../../images/blackjack.jpg</pixmap>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton">
@@ -164,8 +164,8 @@ color: rgb(0, 0, 0);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);
-color: rgb(0, 0, 0);</string>
+     <string notr="true">background-color: rgb(1, 38, 67);
+color: rgb(243, 198, 32);</string>
     </property>
     <property name="text">
      <string>Правила</string>

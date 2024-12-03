@@ -18,30 +18,28 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.zagolovok = QtWidgets.QLabel(parent=self.centralwidget)
-        self.zagolovok.setGeometry(QtCore.QRect(110, 10, 421, 41))
+        self.zagolovok.setGeometry(QtCore.QRect(80, 10, 421, 41))
         font = QtGui.QFont()
-        font.setFamily("Noto Serif Cond")
-        font.setPointSize(14)
-        font.setBold(True)
-        font.setItalic(True)
-        font.setWeight(75)
+        font.setFamily("MS Serif")
+        font.setPointSize(16)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
         self.zagolovok.setFont(font)
-        self.zagolovok.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);")
+        self.zagolovok.setStyleSheet("color: rgb(243, 198, 32);")
         self.zagolovok.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.zagolovok.setObjectName("zagolovok")
         self.dostoinstva = QtWidgets.QLabel(parent=self.centralwidget)
-        self.dostoinstva.setGeometry(QtCore.QRect(50, 70, 491, 271))
+        self.dostoinstva.setGeometry(QtCore.QRect(50, 70, 481, 271))
         self.dostoinstva.setToolTipDuration(-7)
         self.dostoinstva.setText("")
         self.dostoinstva.setTextFormat(QtCore.Qt.TextFormat.AutoText)
-        self.dostoinstva.setPixmap(QtGui.QPixmap("internal/ooi\\bljekdzhek-karty_1.jpg"))
+        self.dostoinstva.setPixmap(QtGui.QPixmap("internal/ooi\\../../images/blackjack_weighs.jpg"))
         self.dostoinstva.setObjectName("dostoinstva")
         self.pravila = QtWidgets.QTextBrowser(parent=self.centralwidget)
-        self.pravila.setGeometry(QtCore.QRect(110, 350, 361, 291))
-        self.pravila.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"border-color: rgb(240, 241, 255);\n"
-"color: rgb(0, 0, 0);")
+        self.pravila.setGeometry(QtCore.QRect(50, 350, 471, 291))
+        self.pravila.setStyleSheet("border-color: rgb(243, 198, 32);\n"
+"color: rgb(243, 198, 32);")
         self.pravila.setObjectName("pravila")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
@@ -58,16 +56,16 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.zagolovok.setText(_translate("MainWindow", "            Правила игры \'Blackjack\'"))
+        self.zagolovok.setText(_translate("MainWindow", "Правила игры \'Blackjack\'"))
         self.pravila.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8.25pt;\">Простая, динамичная и захватывающая игра. Игрок делает ставки на один или несколько обозначенных на столе боксов. После слов дилера «Ставок больше нет» и жеста закрытия ставок рукой, игроки не могут трогать и менять свои ставки.</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8.25pt;\">Простая, динамичная и захватывающая игра. Игрок делает ставки на один или несколько обозначенных на столе боксов. После начала раунда игроки не могут трогать и менять свои ставки.</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8.25pt;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8.25pt;\">Вначале игрок получает две карты «в открытую», сумма очков которых позволяет решить, нужны ему дополнительные карты или нет. Цель игры — набрать 21 очко или близкую к этому сумму. Если игрок набирает сумму очков, превышающую 21, то его ставка проигрывает. Если сумма очков на картах дилера больше, чем 21, то все ставки, оставшиеся в игре, выигрывают.</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8.25pt;\">Вначале игрок получает две карты «в открытую», сумма очков которых позволяет решить, нужны ему дополнительные карты или нет. Цель игры — набрать 21 очко или близкую к этому сумму. Если игрок набирает сумму очков, превышающую 21, или меньшую, чем дилер, то его ставка проигрывает. Если сумма очков на картах дилера больше, чем 21, то игрок выигрывает.</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8.25pt;\"><br /></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8.25pt;\">Игроки, набравшие сумму очков большую, чем дилер, выигрывают, их ставки оплачиваются 1:1. Игроки, набравшие сумму очков меньшую, чем дилер, проигрывают.</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8.25pt;\">Если сумма очков игрока равна сумме очков дилера, то объявляется «ничья» или Stay: ставка игрока не выигрывает и не проигрывает.</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8.25pt;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8.25pt;\">Дилер набирает карты последним, при этом он обязан брать карту, если у него 16 очков или меньше, и остановиться, если сумма очков 17 или больше. Тузы считаются как 1 или как 11, «картинки» (валеты, дамы и короли) — все по 10 очков, остальные карты соответствуют своему номиналу.</span></p></body></html>"))
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8.25pt;\">Дилер набирает карты последним, при этом он обязан брать карту, если у него 16 очков или меньше, а также в случае туз+6. Тузы считаются как 1 или как 11 в зависмиости от того, как лучше владельцу. «Картинки» (валеты, дамы и короли) — все по 10 очков, остальные карты соответствуют своему номиналу.</span></p></body></html>"))

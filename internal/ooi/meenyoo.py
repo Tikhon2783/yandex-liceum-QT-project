@@ -13,21 +13,22 @@ class Ui_Blackjack(object):
     def setupUi(self, Blackjack):
         Blackjack.setObjectName("Blackjack")
         Blackjack.resize(521, 645)
-        Blackjack.setStyleSheet("background-color: rgb(0, 76, 0);")
+        Blackjack.setStyleSheet("background-color: rgb(1, 67, 30);")
         self.centralwidget = QtWidgets.QWidget(parent=Blackjack)
         self.centralwidget.setObjectName("centralwidget")
         self.MainLabel = QtWidgets.QLabel(parent=self.centralwidget)
-        self.MainLabel.setGeometry(QtCore.QRect(100, 10, 291, 31))
+        self.MainLabel.setGeometry(QtCore.QRect(60, 0, 411, 81))
         font = QtGui.QFont()
-        font.setFamily("Noto Serif Cond")
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setItalic(True)
-        font.setWeight(75)
+        font.setFamily("MS Serif")
+        font.setPointSize(19)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setKerning(True)
+        font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferDefault)
         self.MainLabel.setFont(font)
-        self.MainLabel.setStyleSheet("background-color: rgb(0, 77, 0);\n"
-"border-top-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0)")
+        self.MainLabel.setStyleSheet("color: rgb(243, 198, 32);")
         self.MainLabel.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.MainLabel.setObjectName("MainLabel")
         self.Begin_game = QtWidgets.QPushButton(parent=self.centralwidget)
@@ -39,8 +40,8 @@ class Ui_Blackjack(object):
         font.setItalic(False)
         font.setWeight(50)
         self.Begin_game.setFont(font)
-        self.Begin_game.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);")
+        self.Begin_game.setStyleSheet("background-color: rgb(1, 38, 67);\n"
+"color: rgb(243, 198, 32);")
         self.Begin_game.setObjectName("Begin_game")
         self.Records = QtWidgets.QPushButton(parent=self.centralwidget)
         self.Records.setGeometry(QtCore.QRect(130, 470, 211, 41))
@@ -51,9 +52,8 @@ class Ui_Blackjack(object):
         font.setItalic(False)
         font.setWeight(50)
         self.Records.setFont(font)
-        self.Records.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);\n"
-"")
+        self.Records.setStyleSheet("background-color: rgb(1, 38, 67);\n"
+"color: rgb(243, 198, 32);")
         self.Records.setObjectName("Records")
         self.Settings = QtWidgets.QPushButton(parent=self.centralwidget)
         self.Settings.setGeometry(QtCore.QRect(250, 370, 211, 41))
@@ -64,14 +64,14 @@ class Ui_Blackjack(object):
         font.setItalic(False)
         font.setWeight(50)
         self.Settings.setFont(font)
-        self.Settings.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);")
+        self.Settings.setStyleSheet("background-color: rgb(1, 38, 67);\n"
+"color: rgb(243, 198, 32);")
         self.Settings.setText("О программе")
         self.Settings.setObjectName("Settings")
         self.Photo = QtWidgets.QLabel(parent=self.centralwidget)
-        self.Photo.setGeometry(QtCore.QRect(110, 80, 281, 171))
+        self.Photo.setGeometry(QtCore.QRect(120, 110, 281, 171))
         self.Photo.setText("")
-        self.Photo.setPixmap(QtGui.QPixmap("internal/ooi\\images (1).jpg"))
+        self.Photo.setPixmap(QtGui.QPixmap("internal/ooi\\../../images/blackjack.jpg"))
         self.Photo.setObjectName("Photo")
         self.pushButton = QtWidgets.QPushButton(parent=self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(160, 550, 151, 31))
@@ -82,8 +82,8 @@ class Ui_Blackjack(object):
         font.setItalic(False)
         font.setWeight(50)
         self.pushButton.setFont(font)
-        self.pushButton.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);")
+        self.pushButton.setStyleSheet("background-color: rgb(1, 38, 67);\n"
+"color: rgb(243, 198, 32);")
         self.pushButton.setObjectName("pushButton")
         Blackjack.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=Blackjack)
@@ -101,7 +101,7 @@ class Ui_Blackjack(object):
         _translate = QtCore.QCoreApplication.translate
         Blackjack.setWindowTitle(_translate("Blackjack", "MainWindow"))
         Blackjack.setWhatsThis(_translate("Blackjack", "<html><head/><body><p><img src=\"https://www.liveabout.com/thmb/_CkaBejGkMkOZl2fs1uwslQrOVk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/winning-blackjack-hand-on-casino-table-520257696-58979c263df78caebc19a6e7.jpg\"/></p></body></html>"))
-        self.MainLabel.setText(_translate("Blackjack", "   ДОБРО ПОЖАЛОВАТЬ!"))
+        self.MainLabel.setText(_translate("Blackjack", "ДОБРО ПОЖАЛОВАТЬ!"))
         self.Begin_game.setText(_translate("Blackjack", " Начать игру"))
         self.Records.setText(_translate("Blackjack", "Таблица рекордов"))
         self.pushButton.setText(_translate("Blackjack", "Правила"))

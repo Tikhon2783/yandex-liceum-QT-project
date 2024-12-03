@@ -23,7 +23,7 @@
    <widget class="QLabel" name="zagolovok">
     <property name="geometry">
      <rect>
-      <x>110</x>
+      <x>80</x>
       <y>10</y>
       <width>421</width>
       <height>41</height>
@@ -31,19 +31,18 @@
     </property>
     <property name="font">
      <font>
-      <family>Noto Serif Cond</family>
-      <pointsize>14</pointsize>
-      <weight>75</weight>
-      <italic>true</italic>
-      <bold>true</bold>
+      <family>MS Serif</family>
+      <pointsize>16</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);
-color: rgb(0, 0, 0);</string>
+     <string notr="true">color: rgb(243, 198, 32);</string>
     </property>
     <property name="text">
-     <string>            Правила игры 'Blackjack'</string>
+     <string>Правила игры 'Blackjack'</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -54,7 +53,7 @@ color: rgb(0, 0, 0);</string>
      <rect>
       <x>50</x>
       <y>70</y>
-      <width>491</width>
+      <width>481</width>
       <height>271</height>
      </rect>
     </property>
@@ -68,36 +67,35 @@ color: rgb(0, 0, 0);</string>
      <enum>Qt::AutoText</enum>
     </property>
     <property name="pixmap">
-     <pixmap>bljekdzhek-karty_1.jpg</pixmap>
+     <pixmap>../../images/blackjack_weighs.jpg</pixmap>
     </property>
    </widget>
    <widget class="QTextBrowser" name="pravila">
     <property name="geometry">
      <rect>
-      <x>110</x>
+      <x>50</x>
       <y>350</y>
-      <width>361</width>
+      <width>471</width>
       <height>291</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);
-border-color: rgb(240, 241, 255);
-color: rgb(0, 0, 0);</string>
+     <string notr="true">border-color: rgb(243, 198, 32);
+color: rgb(243, 198, 32);</string>
     </property>
     <property name="html">
      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8.25pt;&quot;&gt;Простая, динамичная и захватывающая игра. Игрок делает ставки на один или несколько обозначенных на столе боксов. После слов дилера «Ставок больше нет» и жеста закрытия ставок рукой, игроки не могут трогать и менять свои ставки.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8.25pt;&quot;&gt;Простая, динамичная и захватывающая игра. Игрок делает ставки на один или несколько обозначенных на столе боксов. После начала раунда игроки не могут трогать и менять свои ставки.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8.25pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8.25pt;&quot;&gt;Вначале игрок получает две карты «в открытую», сумма очков которых позволяет решить, нужны ему дополнительные карты или нет. Цель игры — набрать 21 очко или близкую к этому сумму. Если игрок набирает сумму очков, превышающую 21, то его ставка проигрывает. Если сумма очков на картах дилера больше, чем 21, то все ставки, оставшиеся в игре, выигрывают.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8.25pt;&quot;&gt;Вначале игрок получает две карты «в открытую», сумма очков которых позволяет решить, нужны ему дополнительные карты или нет. Цель игры — набрать 21 очко или близкую к этому сумму. Если игрок набирает сумму очков, превышающую 21, или меньшую, чем дилер, то его ставка проигрывает. Если сумма очков на картах дилера больше, чем 21, то игрок выигрывает.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8.25pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8.25pt;&quot;&gt;Игроки, набравшие сумму очков большую, чем дилер, выигрывают, их ставки оплачиваются 1:1. Игроки, набравшие сумму очков меньшую, чем дилер, проигрывают.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8.25pt;&quot;&gt;Если сумма очков игрока равна сумме очков дилера, то объявляется «ничья» или Stay: ставка игрока не выигрывает и не проигрывает.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8.25pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8.25pt;&quot;&gt;Дилер набирает карты последним, при этом он обязан брать карту, если у него 16 очков или меньше, и остановиться, если сумма очков 17 или больше. Тузы считаются как 1 или как 11, «картинки» (валеты, дамы и короли) — все по 10 очков, остальные карты соответствуют своему номиналу.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8.25pt;&quot;&gt;Дилер набирает карты последним, при этом он обязан брать карту, если у него 16 очков или меньше, а также в случае туз+6. Тузы считаются как 1 или как 11 в зависмиости от того, как лучше владельцу. «Картинки» (валеты, дамы и короли) — все по 10 очков, остальные карты соответствуют своему номиналу.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
   </widget>

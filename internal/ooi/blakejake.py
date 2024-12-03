@@ -13,7 +13,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(930, 677)
-        MainWindow.setStyleSheet("background-color: rgb(0, 77, 0);;")
+        MainWindow.setStyleSheet("background-color: rgb(1, 67, 30);")
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.dealerCard1 = QtWidgets.QLabel(parent=self.centralwidget)
@@ -114,9 +114,11 @@ class Ui_MainWindow(object):
         font.setPointSize(10)
         font.setBold(True)
         font.setWeight(75)
+        font.setKerning(True)
         self.btn_restart.setFont(font)
-        self.btn_restart.setStyleSheet("background-color: rgb(4, 26, 120);\n"
-"color: rgb(0, 77, 0);")
+        self.btn_restart.setFocusPolicy(QtCore.Qt.FocusPolicy.StrongFocus)
+        self.btn_restart.setStyleSheet("background-color: rgb(1, 38, 67);\n"
+"color: rgb(243, 198, 32);")
         self.btn_restart.setObjectName("btn_restart")
         self.actions.addWidget(self.btn_restart)
         self.btn_hit = QtWidgets.QPushButton(parent=self.horizontalLayoutWidget)
@@ -126,8 +128,8 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.btn_hit.setFont(font)
-        self.btn_hit.setStyleSheet("background-color: rgb(4, 26, 120);\n"
-"color: rgb(0, 77, 0);")
+        self.btn_hit.setStyleSheet("background-color: rgb(1, 38, 67);\n"
+"color: rgb(243, 198, 32);")
         self.btn_hit.setObjectName("btn_hit")
         self.actions.addWidget(self.btn_hit)
         self.btn_stand = QtWidgets.QPushButton(parent=self.horizontalLayoutWidget)
@@ -137,8 +139,8 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.btn_stand.setFont(font)
-        self.btn_stand.setStyleSheet("background-color: rgb(4, 26, 120);\n"
-"color: rgb(0, 77, 0);")
+        self.btn_stand.setStyleSheet("background-color: rgb(1, 38, 67);\n"
+"color: rgb(243, 198, 32);")
         self.btn_stand.setObjectName("btn_stand")
         self.actions.addWidget(self.btn_stand)
         self.playerCard6 = QtWidgets.QLabel(parent=self.centralwidget)

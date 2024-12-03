@@ -1,4 +1,4 @@
-DEBUG:master:Берем карту из пути: images/cards/diamonds/3_of_diamonds
+DEBUG:master:Берем карту из пути: images/cards/clubs/5_of_clubs
 DEBUG:master:Пользователь хочет войти в аккаунт.
 DEBUG:master:Пользователь прошел проверку аутентификации.
 DEBUG:master:Вошли в аккаунт, показываем экран загрузки.

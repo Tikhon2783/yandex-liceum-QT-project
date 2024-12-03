@@ -15,13 +15,15 @@ class Ui_MainWindow(object):
         MainWindow.resize(915, 709)
         MainWindow.setAnimated(False)
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
-        self.centralwidget.setStyleSheet("background-color:rgb(1,55,122);")
+        self.centralwidget.setStyleSheet("background-color:rgb(1,55,122);\n"
+"background-color: rgb(5, 30, 139);\n"
+"background-color: rgb(24, 44, 82);\n"
+"background-color: rgb(33, 57, 100);")
         self.centralwidget.setObjectName("centralwidget")
         self.form_widget = QtWidgets.QWidget(parent=self.centralwidget)
         self.form_widget.setGeometry(QtCore.QRect(130, 130, 691, 461))
-        self.form_widget.setStyleSheet("background-color: rgb(20,116,72);\n"
-"border-radius: 30px;\n"
-"")
+        self.form_widget.setStyleSheet("background-color: rgb(33, 100, 43);\n"
+"border-radius: 25px;")
         self.form_widget.setObjectName("form_widget")
         self.verticalLayoutWidget = QtWidgets.QWidget(parent=self.form_widget)
         self.verticalLayoutWidget.setGeometry(QtCore.QRect(10, 40, 671, 381))
@@ -182,6 +184,13 @@ class Ui_MainWindow(object):
         self.btn_signup.setObjectName("btn_signup")
         self.btns_layout.addWidget(self.btn_signup)
         self.form_layout.addLayout(self.btns_layout)
+        self.form_widget_2 = QtWidgets.QWidget(parent=self.centralwidget)
+        self.form_widget_2.setGeometry(QtCore.QRect(125, 125, 701, 471))
+        self.form_widget_2.setStyleSheet("background-color: rgb(1, 67, 30);\n"
+"border-radius: 25px;")
+        self.form_widget_2.setObjectName("form_widget_2")
+        self.form_widget_2.raise_()
+        self.form_widget.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 915, 26))
