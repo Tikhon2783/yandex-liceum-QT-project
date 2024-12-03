@@ -1,149 +1,128 @@
 import random
 
-class BlackjackTemplate():
-    def __init__(self, decks_n):
-        # хранить в атрибуте колоду c decks_n мастями (decks_n ∈ [1;4])
-        pass
+CARD_WEIGHS = "A 2 3 4 5 6 7 8 9 10 J Q K".split()
+CARD_SUITS = "HSDC"
 
-    def start_game(self):
-        # перемешать колоду
-        # записать в лог (если успеешь)
-        pass
-    
-    def hit(self):
-        # взять карту
-        # возвратить результат ('blackjack' если 10 + туз /'lose' если сумма > 21 / 'idle' иначе), взятую карту и суммы игрока, дилера
-        # если перебрал, закончить игру (self.end_game), придумай как-нибудь, чтобы последующие вызовы вызывали ошибку
-        # можно в каждом внешнем методе сначала вызывать функцию проверки, например, которая будет проверять флаг
-        pass
+GAME_STATE_IDLE = "idle"
+GAME_STATE_REACHED_MAX = 'reached_max'
+GAME_STATE_WIN = "win"
+GAME_STATE_WIN_BLACKJACK = "win_blackjack"
+GAME_STATE_LOSE = "lose"
+GAME_STATE_LOSE_BLACKJACK = "lose_blackjack"
+GAME_STATE_DRAW = 'draw'
+GAME_STATE_DRAW_BLACKJACK = "draw_blackjack"
 
-    def stand(self):
-        # сыграть за дилера
-        # возвратить результат ('win' / 'lose' / 'lose_blackjack' если 10 + туз / 'draw'), карты дилера, сумму дилера
-        # если что, дилер берет карты пока у него меньше 17 или меньше игрока
-        self.end_game()
-        pass
+class GameAlreadyFinishedError(Exception):
+    pass
 
-    def end_game(self):
-        # после вызова этой функции, все другие вызовы методов должны кидать exception
-        # записать в лог (если успеешь)
-        pass
-
-    def xsdfcgvhbjnkml(self):
-        # можешь создавать сколько угодно любых внутренних вспомогательных функций,
-        # которые я не буду вызывать извне, но они могут использоваться тобой для логики остальных функций
-        pass
-
-
+# Реализация игры блекджек
 class Blackjack():
-    def __init__(self, pc, dc):
-        self.deck = ['2H', '2S', '2D', '2C', '3H', '3S', '3D', '3C',
-                     '4H', '4S', '4D', '4C', '5H', '5S', '5D', '5C', '6H', '6S', '6D', '6C',
-                     '7H', '7S', '7D', '7C', '8H', '8S', '8D', '8C', '9H', '9S', '9D', '9C',
-                     '10H', '10S', '10D', '10C', 'JH', 'JS', 'JD', 'JC', 'QH', 'QS', 'QD', 'QC',
-                     'KH', 'KS', 'KD', 'KC', 'AH', 'AS', 'AD', 'AC']
+    def __init__(self, hand_player:list[tuple[str, str]]=[], hand_dealer:list[tuple[str, str]]=[], decks_n:int=4):
+        if not (0 < decks_n < 5):
+            raise Exception('Impossible number of decks, must be in between 1-4.')
+        
+        self.deck = [(weigh, suit) for weigh in CARD_WEIGHS for suit in CARD_SUITS[:decks_n]][::-1]
+        self.goal = 21
+        self.dealer_min = 17
+        self.game_mode = 'H17'
+
+        for card in hand_player:
+            self.deck.remove(card)
+        for card in hand_dealer:
+            self.deck.remove(card)
+        self.hand_player = hand_player
+        self.hand_dealer = hand_dealer
+
+        self.is_active = True
         random.shuffle(self.deck)
-
-        self.pc = pc
-        for card in pc:
-            self.deck.remove(card)
-        self.dc = dc
-        for card in dc:
-            self.deck.remove(card)
-        self.flag = 1
-        self.w = 0
-
-    def hit(self):
-        if self.flag:
-            ch = self.deck.pop()
-            self.pc.append(ch)
-            a = 0
-            spp = 0
-            for i in self.pc:
-                j = i[:-1]
-                if j.isdigit():
-                    spp += int(j)
-                elif j == 'A':
-                    spp += 1
-                    a = 1
-                else:
-                    spp += 10
-            if a and spp <= 11:
-                spp += 10
-            if spp > 21:
-                self.end_game()
-            return ch, spp, 0
-        else:
-            raise Exception('Game is over, and so is your balance')
-
+    
+    # Начать игру
     def start(self):
-        if self.flag:
-            for i in range(2):
-                ch = self.deck.pop()
-                self.dc.append(ch)
-            a = 0
-            spp = 0
-            for i in self.dc:
-                j = i[:-1]
-                if j.isdigit():
-                    spp += int(j)
-                elif j == 'A':
-                    spp += 1
-                    a = 1
-                else:
-                    spp += 10
-            if a and spp <= 11:
-                spp += 10
-            return self.dc, spp
+        if not self.is_active:
+            raise GameAlreadyFinishedError('Game is over, and so is your balance (tried to call a start method on a finished game)')
+        
+        for i in range(1):
+            card = self.deck.pop()
+            self.hand_dealer.append(card)
+        dealer_sum, dealer_is_soft = self.sum_hand(self.hand_dealer)
+        return self.hand_dealer, dealer_sum, dealer_is_soft
+    
+    # Взять карту игроку
+    def hit(self):
+        if not self.is_active:
+            raise GameAlreadyFinishedError('Game is over, and so is your balance (tried to call a hit method on a finished game)')
+        
+        card = self.deck.pop()
+        self.hand_player.append(card)
+        player_sum, player_is_soft = self.sum_hand(self.hand_player)
+        if player_sum > self.goal:
+            self.end_game()
+            game_state = GAME_STATE_LOSE
+        elif player_sum == self.goal:
+            card_dealer = self.hand_dealer[0][0]
+            if card_dealer.isalpha() or card_dealer == '10':
+                game_state = GAME_STATE_REACHED_MAX
+            else:
+                game_state = GAME_STATE_WIN_BLACKJACK
         else:
-            raise Exception('Game is over, and so is your balance')
-
+            game_state = GAME_STATE_IDLE
+        return game_state, self.hand_player[-1], player_sum, player_is_soft
+    
+    # Хватит брать карты игроку
     def stand(self):
-        a = 0
-        if self.flag:
-            spp = 0
-            for i in self.pc:
-                j = i[:-1]
-                if j.isdigit():
-                    spp += int(j)
-                elif j == 'A':
-                    spp += 1
-                    a = 1
-                else:
-                    spp += 10
-            if a and spp <= 11:
-                spp += 10
-
-            a = 0
-            sup = 0
-            for i in self.pc:
-                j = i[:-1]
-                if j.isdigit():
-                    sup += int(j)
-                elif j == 'A':
-                    sup += 1
-                    a = 1
-                else:
-                    sup += 10
-            if a and sup <= 11:
-                sup += 10
-            while sup < 17 or sup <= spp:
-                j = random.choice(self.deck)
-                self.dc.append(j)
-                if j.isdigit():
-                    sup += int(j)
-                elif j == 'A':
-                    sup += 1
-                    a = 1
-                else:
-                    sup += 10
-                if a and sup <= 11:
-                    sup += 10
-                
-
-            return self.dc, sup
-        else:
-            raise Exception('Game is over, and so is your balance')
+        if not self.is_active:
+            raise GameAlreadyFinishedError('Game is over, and so is your balance (tried to call a method on a finished game)')
+        
+        # Подсчет карт игрока и дилера
+        player_sum, player_blackjack = self.sum_hand(self.hand_player)
+        dealer_sum, dealer_blackjack = self.sum_hand(self.hand_dealer)
+        
+        while (dealer_sum <= player_sum or dealer_sum < 17)\
+                or (dealer_sum == 17 and len(self.hand_dealer) == 2 and self.game_mode == 'H17'):
+            card = self.deck.pop()
+            self.hand_dealer.append(card)
+            # Каждый раз считаем заново из-за сложностей с учетом туза
+            dealer_sum, dealer_blackjack = self.sum_hand(self.hand_dealer)
+        if dealer_sum > 21:
+            game_state = GAME_STATE_WIN
+        elif player_sum < dealer_sum:
+            if dealer_sum == self.goal and dealer_blackjack:
+                game_state = GAME_STATE_LOSE_BLACKJACK
+            else:
+                game_state = GAME_STATE_LOSE
+        elif player_sum == dealer_sum:
+            if player_sum == self.goal and player_blackjack:
+                game_state = GAME_STATE_DRAW_BLACKJACK
+            else:
+                game_state = GAME_STATE_DRAW
+        elif player_sum > dealer_sum:
+            if player_sum == self.goal and player_blackjack:
+                game_state = GAME_STATE_WIN_BLACKJACK
+            else:
+                game_state = GAME_STATE_WIN
+        
+        self.end_game()
+        return game_state, self.hand_dealer, dealer_sum, dealer_blackjack
+    
+    # Посчитать сумму карт на руке
+    def sum_hand(self, hand: list):
+        hand_sum = 0
+        aces = 0
+        soft = False
+        for card in hand:
+            weigh = card[0]
+            if weigh.isdigit():
+                hand_sum += int(weigh)
+            elif weigh == 'A':
+                hand_sum += 1
+                aces += 1
+            else:
+                hand_sum += 10
+        while aces and hand_sum + 10 <= self.goal:
+            hand_sum += 10
+            aces -= 1
+            soft = True
+        return hand_sum, soft
 
     def end_game(self):
-        self.flag = 0
+        self.is_active = False

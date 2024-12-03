@@ -1,12 +1,11 @@
-from PyQt6 import uic  # Импортируем uic
-from PyQt6.QtWidgets import QMainWindow, QWidget, QDialog, QErrorMessage, QLabel, QTableWidgetItem
-# from PyQt6.QtWidgets import QLabel
-from PyQt6.QtGui import QPainter, QPen, QImage, QPixmap
+from PyQt6.QtWidgets import QMainWindow, QWidget, QDialog, QErrorMessage, QTableWidgetItem, QLabel
+from PyQt6.QtGui import QPainter, QPen, QImage, QPixmap, QPalette, QColor
 from PyQt6.QtCore import Qt, QTimer
 
 from csv import DictReader
 import datetime as dt
 from math import pi, sin, cos
+from itertools import chain
 
 import internal.ooi.aooth as auth_ooi
 import internal.ooi.meenyoo as menu_ooi
@@ -14,7 +13,7 @@ import internal.ooi.blakejake as bj_ooi
 import internal.ooi.eenfoo as info_ooi
 import internal.ooi.leedeerbhoord as lb_ui
 import internal.ooi.eenfoo as rules_ui
-from internal.logic.games import Blackjack
+import internal.logic.games as games
 from main import Context
 
 # Виджет ошибки
@@ -22,12 +21,6 @@ class AlertWidget(QErrorMessage):
     def __init__(self, err):
         super().__init__()
         self.showMessage(err)
-        # self.setGeometry(300, 300, 200, 200)
-        # self.setWindowTitle("Ошибка")
-        # self.lbl = QLabel(self)
-        # self.lbl.setText(err)
-        # self.show()
-        # self.activateWindow()
 
 
 # Виджет окна входа в аккаунт
@@ -74,6 +67,7 @@ class AuthWidget(QMainWindow, auth_ooi.Ui_MainWindow):
         self.ctx.logger.debug('Пользователь прошел проверку аутентификации.')
         self.ctx.username = username
         self.grant_access(hash(username))
+    
     # Метод на регистрацию пользователя
     def register(self):
         global _
@@ -122,7 +116,7 @@ class MainMenuWidget(QMainWindow, menu_ooi.Ui_Blackjack):
         super().__init__()
         self.setupUi(self)
 
-        self.bj_widget = games_widgets[0](ctx, Blackjack([], []))
+        self.bj_widget = games_widgets[0](ctx, games.Blackjack([], []))
         self.info_widget = info_widget(ctx)
         self.lb_widget = leaderboard_widget(ctx)
         self.rules_widget = rules_widget
@@ -184,7 +178,7 @@ class LeaderboardWidget(QMainWindow, lb_ui.Ui_records):
         self.modified = {}
 
 
-# Виджет окна с игрой blackjack (двадцать одно)
+# Виджет окна с игрой блэкджек (двадцать одно / очко / "черный валет")
 class BlackJackWidget(QMainWindow, bj_ooi.Ui_MainWindow):
     def __init__(self, ctx, game):
         super().__init__()
@@ -193,25 +187,30 @@ class BlackJackWidget(QMainWindow, bj_ooi.Ui_MainWindow):
         self.ctx = ctx
         self.btn_restart.clicked.connect(self.restart)
 
-        self.player_slots = [self.playerCard1, self.playerCard2, self.playerCard3,
-                      self.playerCard4, self.playerCard5, self.playerCard6,
-                      self.playerCard7]
-        self.dealer_slots = [self.dealerCard1, self.dealerCard2, self.dealerCard3,
-                      self.dealerCard4, self.dealerCard5, self.dealerCard6,
-                      self.dealerCard7]
+        self.player_slots = [
+            self.playerCard1, self.playerCard2, self.playerCard3,
+            self.playerCard4, self.playerCard5, self.playerCard6,
+            self.playerCard7, self.playerCard8, self.playerCard9, self.playerCard10
+            ]
+        self.dealer_slots:list[QLabel] = [
+            self.dealerCard1, self.dealerCard2, self.dealerCard3,
+            self.dealerCard4, self.dealerCard5, self.dealerCard_2,
+            self.dealerCard_3, self.dealerCard_4, self.dealerCard_5,
+            self.dealerCard_6, self.dealerCard_7, self.dealerCard_8,
+            self.dealerCard_9, self.dealerCard_10, self.dealerCard_11,
+            self.dealerCard_12
+            ]
         
         self.prepare_game(game)
     
     def restart(self):
         self.btn_hit.clicked.disconnect()
         self.btn_stand.clicked.disconnect()
-        self.prepare_game(Blackjack([], []))
+        self.prepare_game(games.Blackjack([], []))
     
-    def prepare_game(self, game):
-        self.dealerCard6.hide()
-        self.dealerCard7.hide()
-        self.playerCard6.hide()
-        self.playerCard7.hide()
+    def prepare_game(self, game: games.Blackjack):
+        for card in chain(self.dealer_slots[5:], self.player_slots[5:]):
+            card.hide()
         self.btn_hit.clicked.connect(self.hit_player)
         self.btn_stand.clicked.connect(self.stand_player)
         self.res_label.setText('')
@@ -220,71 +219,116 @@ class BlackJackWidget(QMainWindow, bj_ooi.Ui_MainWindow):
         self.player_cards_n = 0
         self.dealer_cards_n = 0
 
-        pixmap = QPixmap('images/cards/rubashka_of_card')
-        for i in range(1, 6):
-            exec(f'self.playerCard{i}.setPixmap(pixmap)')
-            exec(f'self.dealerCard{i}.setPixmap(pixmap)')
+        pixmap = QPixmap('images/cards/card_shirt')
+        for card_slot in chain(self.dealer_slots, self.player_slots):
+            card_slot.setPixmap(pixmap)
+        for card_slot in self.dealer_slots[:5]:
+            card_slot.show()
         
-        dealer_cards, dealer_sum = self.game.start()
+        dealer_cards, dealer_sum, dealer_is_soft = self.game.start()
         for card in dealer_cards:
-            suit = {'H': 'hearts', 'S': 'spades', 'C': 'clubs', 'D': 'diamonds'}[card[-1]]
-            card_filepath = f"images/cards/{suit}/{str({'J': 11, 'Q': 12, 'K': 13, 'A': 14}.get(card[:-1], card[:-1]))}_of_{suit}"
+            suit = {'H': 'hearts', 'S': 'spades', 'C': 'clubs', 'D': 'diamonds'}[card[1]]
+            card_filepath = f"images/cards/{suit}/{str({'J': 11, 'Q': 12, 'K': 13, 'A': 14}.get(card[0], card[0]))}_of_{suit}"
             self.ctx.logger.debug('Берем карту из пути: ' + card_filepath)
             pixmap = QPixmap(card_filepath)
 
             self.dealer_slots[self.dealer_cards_n].setPixmap(pixmap)
             self.dealer_cards_n += 1
-        self.dlabel.setText(f'Крупье: {dealer_sum}')
+        
+        # Меняем label-ы
+        if dealer_is_soft:
+            text_dealer = f'Дилер: {dealer_sum} (SOFT)'
+        else:
+            text_dealer = f'Дилер: {dealer_sum}'
+        self.dlabel.setText(text_dealer)
+        self.plabel.setText('Игрок: 0')
 
 
     def hit_player(self):
         self.ctx.logger.debug('Игрок берет карту')
-        card, player_sum, dealer_sum = self.game.hit()
-        print(player_sum)
-        suit = {'H': 'hearts', 'S': 'spades', 'C': 'clubs', 'D': 'diamonds'}[card[-1]]
-        card_filepath = f"images/cards/{suit}/{str({'J': 11, 'Q': 12, 'K': 13, 'A': 14}.get(card[:-1], card[:-1]))}_of_{suit}"
+        game_state, card, player_sum, player_is_soft = self.game.hit()
+        suit = {'H': 'hearts', 'S': 'spades', 'C': 'clubs', 'D': 'diamonds'}[card[1]]
+        card_filepath = f"images/cards/{suit}/{str({'J': 11, 'Q': 12, 'K': 13, 'A': 14}.get(card[0], card[0]))}_of_{suit}"
         self.ctx.logger.debug('Берем карту из пути: ' + card_filepath)
         pixmap = QPixmap(card_filepath)
 
         self.player_slots[self.player_cards_n].setPixmap(pixmap)
+        self.player_slots[self.player_cards_n].show()
         self.player_cards_n += 1
-        self.plabel.setText(f'Игрок: {player_sum}')
-        if player_sum > 21:
-            self.btn_hit.clicked.disconnect()
-            self.btn_stand.clicked.disconnect()
-            self.btn_hit.clicked.connect(self.laugh)
-            self.btn_stand.clicked.connect(self.laugh)
-            self.res_label.setText('ВЫ ПРОИГРАЛИ')
-        elif player_sum == 21:
-            self.stand_player()
-        self.player_sum = player_sum
+
+        if player_is_soft:
+            text_player = f'Игрок: {player_sum} (SOFT)'
+        else:
+            text_player = f'Игрок: {player_sum}'
+        match game_state:
+            case games.GAME_STATE_WIN_BLACKJACK:
+                text_player += ' - БЛЭКДЖЕК!'
+                self.btn_hit.clicked.disconnect()
+                self.btn_stand.clicked.disconnect()
+                self.btn_hit.clicked.connect(self.laugh)
+                self.btn_stand.clicked.connect(self.laugh)
+                self.res_label.setText('ВЫ ПОБЕДИЛИ')
+            case games.GAME_STATE_LOSE:
+                self.btn_hit.clicked.disconnect()
+                self.btn_stand.clicked.disconnect()
+                self.btn_hit.clicked.connect(self.laugh)
+                self.btn_stand.clicked.connect(self.laugh)
+                self.res_label.setText('ВЫ ПРОИГРАЛИ')
+            case games.GAME_STATE_REACHED_MAX:
+                self.stand_player()
+            case games.GAME_STATE_IDLE:
+                pass
+            case _:
+                raise Exception('Unexpected game state')
+        self.plabel.setText(text_player)
     
     def stand_player(self):
-        self.ctx.logger.debug('Очередь крупье')
-        dealer_cards, dealer_sum = self.game.stand()
-        for card in dealer_cards:
-            suit = {'H': 'hearts', 'S': 'spades', 'C': 'clubs', 'D': 'diamonds'}[card[-1]]
-            card_filepath = f"images/cards/{suit}/{str({'J': 11, 'Q': 12, 'K': 13, 'A': 14}.get(card[:-1], card[:-1]))}_of_{suit}"
+        self.ctx.logger.debug('Очередь дилера')
+        game_state, dealer_cards, dealer_sum, dealer_is_soft = self.game.stand()
+        for card in dealer_cards[1:]:
+            suit = {'H': 'hearts', 'S': 'spades', 'C': 'clubs', 'D': 'diamonds'}[card[1]]
+            card_filepath = f"images/cards/{suit}/{str({'J': 11, 'Q': 12, 'K': 13, 'A': 14}.get(card[0], card[0]))}_of_{suit}"
             self.ctx.logger.debug('Берем карту из пути: ' + card_filepath)
             pixmap = QPixmap(card_filepath)
 
             self.dealer_slots[self.dealer_cards_n].setPixmap(pixmap)
+            self.dealer_slots[self.dealer_cards_n].show()
             self.dealer_cards_n += 1
-        self.dlabel.setText(f'Крупье: {dealer_sum}')
-        if dealer_sum > 21:
-            self.btn_hit.clicked.disconnect()
-            self.btn_stand.clicked.disconnect()
-            self.btn_hit.clicked.connect(self.laugh)
-            self.btn_stand.clicked.connect(self.laugh)
-            self.res_label.setText('ВЫ ПОБЕДИЛИ')
-        elif dealer_sum == self.player_sum:
-            self.btn_hit.clicked.disconnect()
-            self.btn_stand.clicked.disconnect()
-            self.btn_hit.clicked.connect(self.laugh)
-            self.btn_stand.clicked.connect(self.laugh)
-            self.res_label.setText('НИЧЬЯ')
-
-    
+            if self.dealer_cards_n == 5:
+                for i in range(1, 5):
+                    self.dealer_slots[4 + i].setPixmap(self.dealer_slots[i].pixmap())
+                    self.dealer_slots[i].hide()
+        
+        text_player = self.plabel.text()
+        if dealer_is_soft:
+            text_dealer = f'Дилер: {dealer_sum} (SOFT)'
+        else:
+            text_dealer = f'Дилер: {dealer_sum}'
+        match game_state:
+            case games.GAME_STATE_WIN_BLACKJACK:
+                text_player += ' - БЛЭКДЖЕК!'
+                self.res_label.setText('ВЫ ПОБЕДИЛИ')
+            case games.GAME_STATE_LOSE_BLACKJACK:
+                text_dealer += ' - БЛЭКДЖЕК!'
+                self.res_label.setText('ВЫ ПРОИГРАЛИ')
+            case games.GAME_STATE_DRAW_BLACKJACK:
+                text_player += ' - БЛЭКДЖЕК!'
+                text_dealer += ' - БЛЭКДЖЕК!'
+                self.res_label.setText('НИЧЬЯ')
+            case games.GAME_STATE_WIN:
+                self.res_label.setText('ВЫ ПОБЕДИЛИ')
+            case games.GAME_STATE_LOSE:
+                self.res_label.setText('ВЫ ПРОИГРАЛИ')
+            case games.GAME_STATE_DRAW:
+                self.res_label.setText('НИЧЬЯ')
+            case _:
+                raise Exception('Unexpected game state')
+        self.btn_hit.clicked.disconnect()
+        self.btn_stand.clicked.disconnect()
+        self.btn_hit.clicked.connect(self.laugh)
+        self.btn_stand.clicked.connect(self.laugh)
+        self.plabel.setText(text_player)
+        self.dlabel.setText(text_dealer)
 
     def laugh(self):
         global _

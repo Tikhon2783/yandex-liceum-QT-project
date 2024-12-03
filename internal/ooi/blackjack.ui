@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>900</width>
+    <width>930</width>
     <height>677</height>
    </rect>
   </property>
@@ -354,8 +354,8 @@ color: rgb(0, 77, 0);</string>
    <widget class="QLabel" name="playerCard6">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>310</y>
+      <x>65</x>
+      <y>315</y>
       <width>150</width>
       <height>218</height>
      </rect>
@@ -379,8 +379,8 @@ color: rgb(0, 77, 0);</string>
    <widget class="QLabel" name="playerCard7">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>310</y>
+      <x>235</x>
+      <y>315</y>
       <width>150</width>
       <height>218</height>
      </rect>
@@ -401,13 +401,13 @@ color: rgb(0, 77, 0);</string>
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="dealerCard6">
+   <widget class="QLabel" name="dealerCard_2">
     <property name="enabled">
      <bool>true</bool>
     </property>
     <property name="geometry">
      <rect>
-      <x>110</x>
+      <x>80</x>
       <y>40</y>
       <width>150</width>
       <height>218</height>
@@ -429,13 +429,13 @@ color: rgb(0, 77, 0);</string>
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="dealerCard7">
+   <widget class="QLabel" name="dealerCard_3">
     <property name="enabled">
      <bool>true</bool>
     </property>
     <property name="geometry">
      <rect>
-      <x>280</x>
+      <x>130</x>
       <y>40</y>
       <width>150</width>
       <height>218</height>
@@ -501,13 +501,411 @@ color: rgb(0, 77, 0);</string>
      </item>
     </layout>
    </widget>
+   <widget class="QLabel" name="playerCard8">
+    <property name="geometry">
+     <rect>
+      <x>405</x>
+      <y>315</y>
+      <width>150</width>
+      <height>218</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="lineWidth">
+     <number>2</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>images/cards/2_of_diamonds.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="playerCard9">
+    <property name="geometry">
+     <rect>
+      <x>575</x>
+      <y>315</y>
+      <width>150</width>
+      <height>218</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="lineWidth">
+     <number>2</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>images/cards/2_of_diamonds.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="playerCard10">
+    <property name="geometry">
+     <rect>
+      <x>745</x>
+      <y>315</y>
+      <width>150</width>
+      <height>218</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="lineWidth">
+     <number>2</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>images/cards/2_of_diamonds.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="dealerCard_4">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>40</y>
+      <width>150</width>
+      <height>218</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="lineWidth">
+     <number>2</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>images/cards/2_of_clubs.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="dealerCard_8">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>40</y>
+      <width>150</width>
+      <height>218</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="lineWidth">
+     <number>2</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>images/cards/2_of_clubs.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="dealerCard_6">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>40</y>
+      <width>150</width>
+      <height>218</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="lineWidth">
+     <number>2</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>images/cards/2_of_clubs.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="dealerCard_5">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>40</y>
+      <width>150</width>
+      <height>218</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="lineWidth">
+     <number>2</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>images/cards/2_of_clubs.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="dealerCard_7">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>40</y>
+      <width>150</width>
+      <height>218</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="lineWidth">
+     <number>2</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>images/cards/2_of_clubs.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="dealerCard_9">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>40</y>
+      <width>150</width>
+      <height>218</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="lineWidth">
+     <number>2</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>images/cards/2_of_clubs.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="dealerCard_10">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>40</y>
+      <width>150</width>
+      <height>218</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="lineWidth">
+     <number>2</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>images/cards/2_of_clubs.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="dealerCard_11">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>40</y>
+      <width>150</width>
+      <height>218</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="lineWidth">
+     <number>2</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>images/cards/2_of_clubs.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="dealerCard_12">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>40</y>
+      <width>150</width>
+      <height>218</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="lineWidth">
+     <number>2</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>images/cards/2_of_clubs.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <zorder>dealerCard1</zorder>
+   <zorder>playerCard1</zorder>
+   <zorder>dlabel</zorder>
+   <zorder>dealerCard2</zorder>
+   <zorder>dealerCard3</zorder>
+   <zorder>dealerCard4</zorder>
+   <zorder>dealerCard5</zorder>
+   <zorder>playerCard2</zorder>
+   <zorder>playerCard3</zorder>
+   <zorder>playerCard4</zorder>
+   <zorder>playerCard5</zorder>
+   <zorder>horizontalLayoutWidget</zorder>
+   <zorder>playerCard6</zorder>
+   <zorder>playerCard7</zorder>
+   <zorder>dealerCard_2</zorder>
+   <zorder>dealerCard_3</zorder>
+   <zorder>horizontalLayoutWidget_2</zorder>
+   <zorder>playerCard8</zorder>
+   <zorder>playerCard9</zorder>
+   <zorder>playerCard10</zorder>
+   <zorder>dealerCard_4</zorder>
+   <zorder>dealerCard_5</zorder>
+   <zorder>dealerCard_6</zorder>
+   <zorder>dealerCard_7</zorder>
+   <zorder>dealerCard_8</zorder>
+   <zorder>dealerCard_9</zorder>
+   <zorder>dealerCard_10</zorder>
+   <zorder>dealerCard_11</zorder>
+   <zorder>dealerCard_12</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>900</width>
+     <width>930</width>
      <height>26</height>
     </rect>
    </property>

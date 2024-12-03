@@ -17,109 +17,6 @@
    <string notr="true">background-color: rgb(0, 77, 0);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTableWidget" name="table_of_widgets">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>120</x>
-      <y>180</y>
-      <width>361</width>
-      <height>331</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Noto Serif Cond</family>
-      <pointsize>14</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);
-color: rgb(0, 0, 0)</string>
-    </property>
-    <row>
-     <property name="text">
-      <string>Игра 1</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>Игра 2</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>Игра 3</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>Игра 4</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>Игра 5</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>Игра 6</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>Игра7</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>Игра 8</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>Игра 9</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>Игра 10</string>
-     </property>
-    </row>
-    <column>
-     <property name="text">
-      <string>Игрок</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Соперник</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Выиграл</string>
-     </property>
-    </column>
-    <item row="1" column="0">
-     <property name="text">
-      <string/>
-     </property>
-    </item>
-    <item row="1" column="1">
-     <property name="text">
-      <string/>
-     </property>
-    </item>
-    <item row="1" column="2">
-     <property name="text">
-      <string/>
-     </property>
-    </item>
-   </widget>
    <widget class="QLabel" name="records_label">
     <property name="geometry">
      <rect>
@@ -144,6 +41,16 @@ color: rgb(0, 0, 0)</string>
     </property>
     <property name="text">
      <string>                 Таблица рекордов</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>150</y>
+      <width>351</width>
+      <height>431</height>
+     </rect>
     </property>
    </widget>
   </widget>
