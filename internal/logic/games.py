@@ -60,10 +60,10 @@ class Blackjack():
             game_state = GAME_STATE_LOSE
         elif player_sum == self.goal:
             card_dealer = self.hand_dealer[0][0]
-            if card_dealer.isalpha() or card_dealer == '10':
-                game_state = GAME_STATE_REACHED_MAX
-            else:
+            if player_sum == self.goal and len(self.hand_player) == 2 and not (card_dealer.isalpha() or card_dealer == '10'):
                 game_state = GAME_STATE_WIN_BLACKJACK
+            else:
+                game_state = GAME_STATE_REACHED_MAX
         else:
             game_state = GAME_STATE_IDLE
         return game_state, self.hand_player[-1], player_sum, player_is_soft
@@ -104,7 +104,7 @@ class Blackjack():
         self.end_game()
         return game_state, self.hand_dealer, dealer_sum, dealer_blackjack
     
-    # Посчитать сумму карт на руке
+    # Посчитать сумму карт на руках
     def sum_hand(self, hand: list):
         hand_sum = 0
         aces = 0

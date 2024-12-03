@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'internal/ooi/blackjack.ui'
+# Form implementation generated from reading ui file 'internal/ooi/blakejake.ui'
 #
 # Created by: PyQt6 UI code generator 6.7.1
 #
@@ -109,6 +109,7 @@ class Ui_MainWindow(object):
         self.actions.setContentsMargins(0, 0, 0, 0)
         self.actions.setObjectName("actions")
         self.btn_restart = QtWidgets.QPushButton(parent=self.horizontalLayoutWidget)
+        self.btn_restart.setMinimumSize(QtCore.QSize(0, 31))
         font = QtGui.QFont()
         font.setPointSize(10)
         font.setBold(True)
@@ -119,6 +120,7 @@ class Ui_MainWindow(object):
         self.btn_restart.setObjectName("btn_restart")
         self.actions.addWidget(self.btn_restart)
         self.btn_hit = QtWidgets.QPushButton(parent=self.horizontalLayoutWidget)
+        self.btn_hit.setMinimumSize(QtCore.QSize(0, 31))
         font = QtGui.QFont()
         font.setPointSize(10)
         font.setBold(True)
@@ -129,6 +131,7 @@ class Ui_MainWindow(object):
         self.btn_hit.setObjectName("btn_hit")
         self.actions.addWidget(self.btn_hit)
         self.btn_stand = QtWidgets.QPushButton(parent=self.horizontalLayoutWidget)
+        self.btn_stand.setMinimumSize(QtCore.QSize(0, 31))
         font = QtGui.QFont()
         font.setPointSize(10)
         font.setBold(True)
@@ -314,6 +317,22 @@ class Ui_MainWindow(object):
         self.dealerCard_12.setPixmap(QtGui.QPixmap("internal/ooi\\images/cards/2_of_clubs.png"))
         self.dealerCard_12.setScaledContents(True)
         self.dealerCard_12.setObjectName("dealerCard_12")
+        self.playerCard11 = QtWidgets.QLabel(parent=self.centralwidget)
+        self.playerCard11.setGeometry(QtCore.QRect(100, 320, 150, 218))
+        self.playerCard11.setFrameShape(QtWidgets.QFrame.Shape.Box)
+        self.playerCard11.setLineWidth(2)
+        self.playerCard11.setText("")
+        self.playerCard11.setPixmap(QtGui.QPixmap("internal/ooi\\images/cards/2_of_diamonds.png"))
+        self.playerCard11.setScaledContents(True)
+        self.playerCard11.setObjectName("playerCard11")
+        self.playerCard12 = QtWidgets.QLabel(parent=self.centralwidget)
+        self.playerCard12.setGeometry(QtCore.QRect(270, 320, 150, 218))
+        self.playerCard12.setFrameShape(QtWidgets.QFrame.Shape.Box)
+        self.playerCard12.setLineWidth(2)
+        self.playerCard12.setText("")
+        self.playerCard12.setPixmap(QtGui.QPixmap("internal/ooi\\images/cards/2_of_diamonds.png"))
+        self.playerCard12.setScaledContents(True)
+        self.playerCard12.setObjectName("playerCard12")
         self.dealerCard1.raise_()
         self.playerCard1.raise_()
         self.dlabel.raise_()
@@ -343,6 +362,8 @@ class Ui_MainWindow(object):
         self.dealerCard_10.raise_()
         self.dealerCard_11.raise_()
         self.dealerCard_12.raise_()
+        self.playerCard11.raise_()
+        self.playerCard12.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 930, 26))
@@ -358,7 +379,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.dlabel.setText(_translate("MainWindow", "Крупье: 0"))
+        self.dlabel.setText(_translate("MainWindow", "Дилер: 0"))
         self.btn_restart.setText(_translate("MainWindow", "Начать заново"))
         self.btn_hit.setText(_translate("MainWindow", "Взять карту"))
         self.btn_stand.setText(_translate("MainWindow", "Остановиться"))

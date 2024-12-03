@@ -82,7 +82,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Крупье: 0</string>
+     <string>Дилер: 0</string>
     </property>
    </widget>
    <widget class="QLabel" name="dealerCard2">
@@ -297,6 +297,12 @@
     <layout class="QHBoxLayout" name="actions">
      <item>
       <widget class="QPushButton" name="btn_restart">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>31</height>
+        </size>
+       </property>
        <property name="font">
         <font>
          <pointsize>10</pointsize>
@@ -315,6 +321,12 @@ color: rgb(0, 77, 0);</string>
      </item>
      <item>
       <widget class="QPushButton" name="btn_hit">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>31</height>
+        </size>
+       </property>
        <property name="font">
         <font>
          <pointsize>10</pointsize>
@@ -333,6 +345,12 @@ color: rgb(0, 77, 0);</string>
      </item>
      <item>
       <widget class="QPushButton" name="btn_stand">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>31</height>
+        </size>
+       </property>
        <property name="font">
         <font>
          <pointsize>10</pointsize>
@@ -870,6 +888,56 @@ color: rgb(0, 77, 0);</string>
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QLabel" name="playerCard11">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>320</y>
+      <width>150</width>
+      <height>218</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="lineWidth">
+     <number>2</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>images/cards/2_of_diamonds.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="playerCard12">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>320</y>
+      <width>150</width>
+      <height>218</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="lineWidth">
+     <number>2</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>images/cards/2_of_diamonds.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
    <zorder>dealerCard1</zorder>
    <zorder>playerCard1</zorder>
    <zorder>dlabel</zorder>
@@ -899,6 +967,8 @@ color: rgb(0, 77, 0);</string>
    <zorder>dealerCard_10</zorder>
    <zorder>dealerCard_11</zorder>
    <zorder>dealerCard_12</zorder>
+   <zorder>playerCard11</zorder>
+   <zorder>playerCard12</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

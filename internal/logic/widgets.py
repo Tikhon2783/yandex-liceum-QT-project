@@ -190,7 +190,8 @@ class BlackJackWidget(QMainWindow, bj_ooi.Ui_MainWindow):
         self.player_slots = [
             self.playerCard1, self.playerCard2, self.playerCard3,
             self.playerCard4, self.playerCard5, self.playerCard6,
-            self.playerCard7, self.playerCard8, self.playerCard9, self.playerCard10
+            self.playerCard7, self.playerCard8, self.playerCard9,
+            self.playerCard10, self.playerCard11, self.playerCard12
             ]
         self.dealer_slots:list[QLabel] = [
             self.dealerCard1, self.dealerCard2, self.dealerCard3,
@@ -209,7 +210,7 @@ class BlackJackWidget(QMainWindow, bj_ooi.Ui_MainWindow):
         self.prepare_game(games.Blackjack([], []))
     
     def prepare_game(self, game: games.Blackjack):
-        for card in chain(self.dealer_slots[5:], self.player_slots[5:]):
+        for card in chain(self.dealer_slots[2:], self.player_slots[2:]):
             card.hide()
         self.btn_hit.clicked.connect(self.hit_player)
         self.btn_stand.clicked.connect(self.stand_player)
@@ -219,10 +220,13 @@ class BlackJackWidget(QMainWindow, bj_ooi.Ui_MainWindow):
         self.player_cards_n = 0
         self.dealer_cards_n = 0
 
-        pixmap = QPixmap('images/cards/card_shirt')
-        for card_slot in chain(self.dealer_slots, self.player_slots):
-            card_slot.setPixmap(pixmap)
-        for card_slot in self.dealer_slots[:5]:
+        pixmap_empty = QPixmap()
+        for card_slot in chain(self.dealer_slots[:5], self.player_slots[:5]):
+            card_slot.setPixmap(pixmap_empty)
+            card_slot.show()
+        pixmap_shirt = QPixmap('images/cards/card_shirt')
+        for card_slot in chain(self.dealer_slots[:2], self.player_slots[:2]):
+            card_slot.setPixmap(pixmap_shirt)
             card_slot.show()
         
         dealer_cards, dealer_sum, dealer_is_soft = self.game.start()
@@ -297,6 +301,7 @@ class BlackJackWidget(QMainWindow, bj_ooi.Ui_MainWindow):
             if self.dealer_cards_n == 5:
                 for i in range(1, 5):
                     self.dealer_slots[4 + i].setPixmap(self.dealer_slots[i].pixmap())
+                    self.dealer_slots[4 + i].show()
                     self.dealer_slots[i].hide()
         
         text_player = self.plabel.text()
