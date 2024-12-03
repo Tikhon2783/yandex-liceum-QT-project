@@ -26,4 +26,4 @@ class Database():
        self.conn.commit()
     
     def get_lb(self):
-       return self.cur.execute('''SELECT * FROM records''')
+       return self.cur.execute('''SELECT * FROM records''').fetchall()

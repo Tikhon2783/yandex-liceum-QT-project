@@ -7,8 +7,6 @@ from internal.logic.logging import logger
 
 
 def except_hook(cls, exception, traceback):
-    print('\nCAUGHT!\n')
-    print(cls, exception, traceback, sep='\n', end='\n')
     sys.__excepthook__(cls, exception, traceback)
 
 

@@ -6,6 +6,7 @@ from csv import DictReader
 import datetime as dt
 from math import pi, sin, cos
 from itertools import chain
+from hashlib import sha256
 
 import internal.ooi.aooth as auth_ooi
 import internal.ooi.meenyoo as menu_ooi
@@ -65,8 +66,7 @@ class AuthWidget(QMainWindow, auth_ooi.Ui_MainWindow):
         
         # Пользователь прошел проверку аутентификации
         self.ctx.logger.debug('Пользователь прошел проверку аутентификации.')
-        self.ctx.username = username
-        self.grant_access(hash(username))
+        self.grant_access(username)
     
     # Метод на регистрацию пользователя
     def register(self):
@@ -84,22 +84,23 @@ class AuthWidget(QMainWindow, auth_ooi.Ui_MainWindow):
         
         # Пользователь успешно зарегистрирован
         self.ctx.logger.debug('Пользователь успешно зарегистрирован.')
-        self.ctx.username = username
-        self.grant_access(hash(username))
+        self.grant_access(username)
     
     
     # Метод успешного входа в аккаунт
-    def grant_access(self, username_hash):
+    def grant_access(self, username):
         global _
+        self.ctx.username = username
+        username_hash = sha256(username.encode()).hexdigest()
         now = dt.datetime.now()
         with open(self.ctx.timesfilepath, encoding='utf8') as f:
             for row in DictReader(f, ['username_hash', 'time'], delimiter=';'):
                 if row['username_hash'] == username_hash:
                     absense_time = dt.datetime.strptime('%f', row['time']) - now
                     break
+
         _ = DrawStar()
         QTimer.singleShot(1500, self.proceed)
-        # self.proceed()
 
         self.ctx.logger.debug('Вошли в аккаунт, показываем экран загрузки.')
     
@@ -137,6 +138,7 @@ class MainMenuWidget(QMainWindow, menu_ooi.Ui_Blackjack):
         self.rules_widget.show()
     
     def leaderboard(self):
+        self.lb_widget.update_result()
         self.lb_widget.show()
 
 
@@ -160,27 +162,28 @@ class LeaderboardWidget(QMainWindow, lb_ui.Ui_records):
         super().__init__()
         self.setupUi(self)  # Загружаем дизайн
         self.ctx = ctx
+        self.update_result()
     
     def update_result(self):
         # Получили результат запроса, который ввели в текстовое поле
-        result = self.ctx.db.getlb()
+        result = self.ctx.db.get_lb()
         # Заполнили размеры таблицы
         self.tableWidget.setRowCount(len(result))
         # Если запись не нашлась, то не будем ничего делать
         if not result:
             self.statusBar().showMessage('Ничего не нашлось')
             return
-
+        self.tableWidget.setColumnCount(len(result[0]))
+        self.tableWidget.setHorizontalHeaderLabels(['Лудоман:', 'Побед:'])
         # Заполнили таблицу полученными элементами
         for i, elem in enumerate(result):
             for j, val in enumerate(elem):
                 self.tableWidget.setItem(i, j, QTableWidgetItem(str(val)))
-        self.modified = {}
 
 
 # Виджет окна с игрой блэкджек (двадцать одно / очко / "черный валет")
 class BlackJackWidget(QMainWindow, bj_ooi.Ui_MainWindow):
-    def __init__(self, ctx, game):
+    def __init__(self, ctx: Context, game):
         super().__init__()
         self.setupUi(self)  # Загружаем дизайн
 
@@ -266,6 +269,7 @@ class BlackJackWidget(QMainWindow, bj_ooi.Ui_MainWindow):
             text_player = f'Игрок: {player_sum}'
         match game_state:
             case games.GAME_STATE_WIN_BLACKJACK:
+                self.ctx.db.add_win(self.ctx.username)
                 text_player += ' - БЛЭКДЖЕК!'
                 self.btn_hit.clicked.disconnect()
                 self.btn_stand.clicked.disconnect()
@@ -311,6 +315,7 @@ class BlackJackWidget(QMainWindow, bj_ooi.Ui_MainWindow):
             text_dealer = f'Дилер: {dealer_sum}'
         match game_state:
             case games.GAME_STATE_WIN_BLACKJACK:
+                self.ctx.db.add_win(self.ctx.username)
                 text_player += ' - БЛЭКДЖЕК!'
                 self.res_label.setText('ВЫ ПОБЕДИЛИ')
             case games.GAME_STATE_LOSE_BLACKJACK:
@@ -321,6 +326,7 @@ class BlackJackWidget(QMainWindow, bj_ooi.Ui_MainWindow):
                 text_dealer += ' - БЛЭКДЖЕК!'
                 self.res_label.setText('НИЧЬЯ')
             case games.GAME_STATE_WIN:
+                self.ctx.db.add_win(self.ctx.username)
                 self.res_label.setText('ВЫ ПОБЕДИЛИ')
             case games.GAME_STATE_LOSE:
                 self.res_label.setText('ВЫ ПРОИГРАЛИ')
