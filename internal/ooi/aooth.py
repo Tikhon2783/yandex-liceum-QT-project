@@ -15,10 +15,10 @@ class Ui_MainWindow(object):
         MainWindow.resize(915, 709)
         MainWindow.setAnimated(False)
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
-        self.centralwidget.setStyleSheet("background-color:rgb(1,55,122);\n"
-"background-color: rgb(5, 30, 139);\n"
-"background-color: rgb(24, 44, 82);\n"
-"background-color: rgb(33, 57, 100);")
+        self.centralwidget.setStyleSheet("background-color:rgb(77,34,14);\n"
+"background-color: rgb(77,34,14);\n"
+"background-color: rgb(80,200,120);\n"
+"background-color: rgb(89,53,31);")
         self.centralwidget.setObjectName("centralwidget")
         self.form_widget = QtWidgets.QWidget(parent=self.centralwidget)
         self.form_widget.setGeometry(QtCore.QRect(130, 130, 691, 461))
@@ -46,7 +46,7 @@ class Ui_MainWindow(object):
         self.lbl_username.setMaximumSize(QtCore.QSize(300, 16777215))
         self.lbl_username.setToolTipDuration(-1)
         self.lbl_username.setAutoFillBackground(False)
-        self.lbl_username.setStyleSheet("background-color: rgb(12, 75, 46);\n"
+        self.lbl_username.setStyleSheet("background-color: rgb(168,228,160);\n"
 "color: rgb(0, 0, 0);\n"
 "border-radius: 4px;\n"
 "border: 1px solid black;\n"
@@ -70,7 +70,7 @@ class Ui_MainWindow(object):
         self.lbl_psw.setMaximumSize(QtCore.QSize(300, 16777215))
         self.lbl_psw.setToolTipDuration(-1)
         self.lbl_psw.setAutoFillBackground(False)
-        self.lbl_psw.setStyleSheet("background-color: rgb(12, 75, 46);\n"
+        self.lbl_psw.setStyleSheet("background-color: rgb(168,228,160);\n"
 "color: rgb(0, 0, 0);\n"
 "border-radius: 4px;\n"
 "border: 1px solid black;\n"
@@ -147,17 +147,17 @@ class Ui_MainWindow(object):
         self.btn_login.setPalette(palette)
         self.btn_login.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.OpenHandCursor))
         self.btn_login.setStyleSheet("QPushButton {\n"
-"    background-color: rgb(12, 75, 46);\n"
+"    background-color: rgb( 168,228,160);\n"
 "    color: rgb(0, 0, 0);\n"
 "    border-radius: 4px;\n"
 "    border: 1px solid black;\n"
 "    height: 30px;\n"
 "}\n"
 "QPushButton:pressed {\n"
-"  background-color: rgb(0, 67, 37);\n"
+"  background-color: rgb(168,228,160);\n"
 "}\n"
 "QPushButton:disabled {\n"
-"    background-color: rgba(12, 75, 46, 0.55);\n"
+"    background-color: rgba(168,228,160, 0.55);\n"
 "    color: rgba(0, 0, 0, 0.6);\n"
 "}\n"
 "")
@@ -168,17 +168,17 @@ class Ui_MainWindow(object):
         self.btn_signup.setEnabled(False)
         self.btn_signup.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.OpenHandCursor))
         self.btn_signup.setStyleSheet("QPushButton {\n"
-"    background-color: rgb(12, 75, 46);\n"
+"    background-color: rgb(168,228,160);\n"
 "    color: rgb(0, 0, 0);\n"
 "    border-radius: 4px;\n"
 "    border: 1px solid black;\n"
 "    height: 30px;\n"
 "}\n"
 "QPushButton:pressed {\n"
-"  background-color: rgb(0, 67, 37);\n"
+"  background-color: rgb(168,228,180);\n"
 "}\n"
 "QPushButton:disabled {\n"
-"    background-color: rgba(12, 75, 46, 0.55);\n"
+"    background-color: rgba(168,228,160, 0.55);\n"
 "    color: rgba(0, 0, 0, 0.6);\n"
 "}")
         self.btn_signup.setObjectName("btn_signup")
@@ -186,7 +186,7 @@ class Ui_MainWindow(object):
         self.form_layout.addLayout(self.btns_layout)
         self.form_widget_2 = QtWidgets.QWidget(parent=self.centralwidget)
         self.form_widget_2.setGeometry(QtCore.QRect(125, 125, 701, 471))
-        self.form_widget_2.setStyleSheet("background-color: rgb(1, 67, 30);\n"
+        self.form_widget_2.setStyleSheet("background-color: rgb(168,228,160);\n"
 "border-radius: 25px;")
         self.form_widget_2.setObjectName("form_widget_2")
         self.form_widget_2.raise_()
