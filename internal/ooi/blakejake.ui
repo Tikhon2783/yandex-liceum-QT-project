@@ -83,6 +83,7 @@
     </property>
     <property name="text">
      <string>Дилер: 0</string>
+     <string notr="true">color: rgb(243, 198, 32);</string>
     </property>
    </widget>
    <widget class="QLabel" name="dealerCard2">
@@ -504,6 +505,7 @@ color: rgb(243, 198, 32);</string>
        </property>
        <property name="text">
         <string>Игрок: 0</string>
+        <string notr="true">color: rgb(243, 198, 32);</string>
        </property>
       </widget>
      </item>
