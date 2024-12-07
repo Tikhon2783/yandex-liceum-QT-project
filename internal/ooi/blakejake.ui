@@ -81,9 +81,11 @@
       <pointsize>12</pointsize>
      </font>
     </property>
-    <property name="text">
-     <string>Дилер: 0</string>
+    <property name="styleSheet">
      <string notr="true">color: rgb(243, 198, 32);</string>
+    </property>
+    <property name="text">
+     <string notr="true">Дилер: 0</string>
     </property>
    </widget>
    <widget class="QLabel" name="dealerCard2">
@@ -503,9 +505,11 @@ color: rgb(243, 198, 32);</string>
          <pointsize>12</pointsize>
         </font>
        </property>
-       <property name="text">
-        <string>Игрок: 0</string>
+       <property name="styleSheet">
         <string notr="true">color: rgb(243, 198, 32);</string>
+       </property>
+       <property name="text">
+        <string notr="true">Игрок: 0</string>
        </property>
       </widget>
      </item>
@@ -517,6 +521,9 @@ color: rgb(243, 198, 32);</string>
          <weight>75</weight>
          <bold>true</bold>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(243, 198, 32);</string>
        </property>
        <property name="text">
         <string/>

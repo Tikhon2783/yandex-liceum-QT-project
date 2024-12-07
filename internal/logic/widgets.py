@@ -346,6 +346,7 @@ class DrawStar(QDialog):
 
     def initUI(self):
         self.setGeometry(300, 200, *[500, 500])
+        self.setStyleSheet("background-color: rgb(10, 10, 10);")
         self.field = QImage()
 
     def paintEvent(self, event):

@@ -30,6 +30,7 @@ class Ui_records(object):
         self.records_label.setObjectName("records_label")
         self.tableWidget = QtWidgets.QTableWidget(parent=self.centralwidget)
         self.tableWidget.setGeometry(QtCore.QRect(130, 150, 351, 431))
+        self.tableWidget.setStyleSheet("color: rgb(243, 198, 32);")
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(0)
         self.tableWidget.setRowCount(0)

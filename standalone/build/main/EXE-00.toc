@@ -67,7 +67,7 @@
  [],
  False,
  False,
- 1733250676,
+ 1733561349,
  [('runw.exe',
    'C:\\Users\\tikho\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\PyInstaller\\bootloader\\Windows-64bit-intel\\runw.exe',
    'EXECUTABLE')],

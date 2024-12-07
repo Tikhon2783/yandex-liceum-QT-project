@@ -1,50 +1,12 @@
-DEBUG:master:Берем карту из пути: images/cards/clubs/10_of_clubs
+DEBUG:master:Берем карту из пути: images/cards/spades/10_of_spades
 DEBUG:master:Пользователь хочет войти в аккаунт.
 DEBUG:master:Пользователь прошел проверку аутентификации.
 DEBUG:master:Вошли в аккаунт, показываем экран загрузки.
 DEBUG:master:Игрок берет карту
-DEBUG:master:Берем карту из пути: images/cards/clubs/5_of_clubs
-DEBUG:master:Игрок берет карту
-DEBUG:master:Берем карту из пути: images/cards/spades/5_of_spades
-DEBUG:master:Игрок берет карту
-DEBUG:master:Берем карту из пути: images/cards/hearts/8_of_hearts
-DEBUG:master:Очередь дилера
-DEBUG:master:Берем карту из пути: images/cards/spades/11_of_spades
 DEBUG:master:Берем карту из пути: images/cards/hearts/11_of_hearts
 DEBUG:master:Игрок берет карту
-DEBUG:master:Берем карту из пути: images/cards/hearts/6_of_hearts
-DEBUG:master:Игрок берет карту
-DEBUG:master:Берем карту из пути: images/cards/clubs/11_of_clubs
-DEBUG:master:Очередь дилера
-DEBUG:master:Берем карту из пути: images/cards/clubs/12_of_clubs
-DEBUG:master:Берем карту из пути: images/cards/clubs/11_of_clubs
-DEBUG:master:Игрок берет карту
 DEBUG:master:Берем карту из пути: images/cards/clubs/10_of_clubs
-DEBUG:master:Игрок берет карту
+DEBUG:master:Очередь дилера
+DEBUG:master:Берем карту из пути: images/cards/clubs/3_of_clubs
 DEBUG:master:Берем карту из пути: images/cards/spades/5_of_spades
-DEBUG:master:Игрок берет карту
-DEBUG:master:Берем карту из пути: images/cards/hearts/12_of_hearts
-DEBUG:master:Берем карту из пути: images/cards/clubs/12_of_clubs
-DEBUG:master:Игрок берет карту
-DEBUG:master:Берем карту из пути: images/cards/diamonds/4_of_diamonds
-DEBUG:master:Игрок берет карту
 DEBUG:master:Берем карту из пути: images/cards/clubs/7_of_clubs
-DEBUG:master:Игрок берет карту
-DEBUG:master:Берем карту из пути: images/cards/spades/8_of_spades
-DEBUG:master:Очередь дилера
-DEBUG:master:Берем карту из пути: images/cards/diamonds/10_of_diamonds
-DEBUG:master:Берем карту из пути: images/cards/clubs/12_of_clubs
-DEBUG:master:Берем карту из пути: images/cards/spades/9_of_spades
-DEBUG:master:Берем карту из пути: images/cards/clubs/13_of_clubs
-DEBUG:master:Берем карту из пути: images/cards/diamonds/8_of_diamonds
-DEBUG:master:Берем карту из пути: images/cards/diamonds/11_of_diamonds
-DEBUG:master:Берем карту из пути: images/cards/clubs/5_of_clubs
-DEBUG:master:Игрок берет карту
-DEBUG:master:Берем карту из пути: images/cards/diamonds/11_of_diamonds
-DEBUG:master:Игрок берет карту
-DEBUG:master:Берем карту из пути: images/cards/hearts/10_of_hearts
-DEBUG:master:Очередь дилера
-DEBUG:master:Берем карту из пути: images/cards/spades/3_of_spades
-DEBUG:master:Берем карту из пути: images/cards/spades/8_of_spades
-DEBUG:master:Берем карту из пути: images/cards/hearts/9_of_hearts
-DEBUG:master:Берем карту из пути: images/cards/hearts/2_of_hearts

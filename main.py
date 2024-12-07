@@ -34,7 +34,6 @@ if __name__ == '__main__':
         wdt.MainMenuWidget(ctx, wdt.ProgramInfoWidget, wdt.LeaderboardWidget, wdt.Rules, wdt.BlackJackWidget)
     )
     auther.show()
-    # todo: собственно логировать события
 
     exit_status = app.exec()
     auther.ctx.db.conn.close()
