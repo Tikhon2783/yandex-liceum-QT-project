@@ -117,16 +117,20 @@ class MainMenuWidget(QMainWindow, menu_ooi.Ui_Blackjack):
         self.pushButton.clicked.connect(self.rules)
         self.Records.clicked.connect(self.leaderboard)
     
+    # Метод открытия окна игры
     def StartBlackJack(self):
         # self.hide()
         self.bj_widget.show()
     
+    # Метод открытия окна информации о программе
     def about(self):
         self.info_widget.show()
     
+    # Метод открытия окна правил игры
     def rules(self):
         self.rules_widget.show()
     
+    # Метод открытия окна таблицы рекордов
     def leaderboard(self):
         self.lb_widget.update_result()
         self.lb_widget.show()
@@ -154,6 +158,7 @@ class LeaderboardWidget(QMainWindow, lb_ui.Ui_records):
         self.ctx = ctx
         self.update_result()
     
+    # Метод обновления таблицы
     def update_result(self):
         # Получили результат запроса, который ввели в текстовое поле
         result = self.ctx.db.get_lb()
@@ -197,11 +202,13 @@ class BlackJackWidget(QMainWindow, bj_ooi.Ui_MainWindow):
         
         self.prepare_game(game)
     
+    # Метод запуска игры с начала
     def restart(self):
         self.btn_hit.clicked.disconnect()
         self.btn_stand.clicked.disconnect()
         self.prepare_game(games.Blackjack([], []))
     
+    # Метод подготовки окна к новой игре
     def prepare_game(self, game: games.Blackjack):
         for card in chain(self.dealer_slots[2:], self.player_slots[2:]):
             card.hide()
@@ -241,6 +248,7 @@ class BlackJackWidget(QMainWindow, bj_ooi.Ui_MainWindow):
         self.plabel.setText('Игрок: 0')
 
 
+    # Игрок берет карту
     def hit_player(self):
         self.ctx.logger.debug('Игрок берет карту')
         game_state, card, player_sum, player_is_soft = self.game.hit()
@@ -280,6 +288,7 @@ class BlackJackWidget(QMainWindow, bj_ooi.Ui_MainWindow):
                 raise Exception('Unexpected game state')
         self.plabel.setText(text_player)
     
+    # Игрок останавливается (дилер берет карты)
     def stand_player(self):
         self.ctx.logger.debug('Очередь дилера')
         game_state, dealer_cards, dealer_sum, dealer_is_soft = self.game.stand()
@@ -331,11 +340,12 @@ class BlackJackWidget(QMainWindow, bj_ooi.Ui_MainWindow):
         self.plabel.setText(text_player)
         self.dlabel.setText(text_dealer)
 
+    # Заглушка для кнопок после завершения игры
     def laugh(self):
         global _
         _ = AlertWidget('Игра закончена, руки прочь с карт :D')
         
-
+# Класс окна загрузки (со звездой)
 class DrawStar(QDialog):
     def __init__(self):
         super().__init__()
@@ -349,6 +359,7 @@ class DrawStar(QDialog):
         self.setStyleSheet("background-color: rgb(10, 10, 10);")
         self.field = QImage()
 
+    # Метод рисования звезды
     def paintEvent(self, event):
         self.myqp = QPainter()
         self.myqp.begin(self)
@@ -378,12 +389,15 @@ class DrawStar(QDialog):
         self.i += 1
         self.myqp.end()
 
+    # Помощь в вычислении координат
     def xs(self, x):
         return x + [500, 500][0] // 2
 
+    # Помощь в вычислении координат
     def ys(self, y):
         return [500, 500][1] // 2 - y
 
+    # Метод подготовки к рисованию звезды
     def prepare_star(self):
         # Считаем координаты и переводим их в экранные
         self.nodes = [(200 * cos(i * 2 * pi / 5),
