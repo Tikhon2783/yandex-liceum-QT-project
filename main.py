@@ -1,4 +1,6 @@
 import sys
+from os import chdir, getcwd
+from os.path import abspath
 from PyQt6.QtWidgets import QApplication
 
 import internal.logic.widgets as wdt
@@ -8,6 +10,12 @@ from internal.logic.logging import logger
 
 def except_hook(cls, exception, traceback):
     sys.__excepthook__(cls, exception, traceback)
+
+
+def normalize_path():
+    path = abspath(getcwd())
+    if '/' in path and path.split('/')[-2] == 'dist' or '\\' in path and path.split('\\')[-2] == 'dist':
+        chdir('../..')
 
 
 class Context():
@@ -21,6 +29,7 @@ if __name__ == '__main__':
     global _
     # Ловим ошибки
     sys.excepthook = except_hook
+    normalize_path()
 
     app = QApplication(sys.argv)
     # Объявляем экземпляры всех мспользуемых классов и передаем их друг другу через аргументы

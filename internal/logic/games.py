@@ -74,35 +74,40 @@ class Blackjack():
             raise GameAlreadyFinishedError('Game is over, and so is your balance (tried to call a method on a finished game)')
         
         # Подсчет карт игрока и дилера
-        player_sum, player_blackjack = self.sum_hand(self.hand_player)
-        dealer_sum, dealer_blackjack = self.sum_hand(self.hand_dealer)
+        player_sum, player_soft = self.sum_hand(self.hand_player)
+        dealer_sum, dealer_soft = self.sum_hand(self.hand_dealer)
         
-        while (dealer_sum <= player_sum or dealer_sum < 17)\
+        while (dealer_sum < player_sum or dealer_sum < 17)\
                 or (dealer_sum == 17 and len(self.hand_dealer) == 2 and self.game_mode == 'H17'):
             card = self.deck.pop()
             self.hand_dealer.append(card)
             # Каждый раз считаем заново из-за сложностей с учетом туза
-            dealer_sum, dealer_blackjack = self.sum_hand(self.hand_dealer)
-        if dealer_sum > 21:
-            game_state = GAME_STATE_WIN
+            dealer_sum, dealer_soft = self.sum_hand(self.hand_dealer)
+        if dealer_sum > 21 or player_sum > dealer_sum:
+            if player_sum == self.goal and len(self.hand_player) == 2:
+                game_state = GAME_STATE_WIN_BLACKJACK
+            else:
+                game_state = GAME_STATE_WIN
         elif player_sum < dealer_sum:
-            if dealer_sum == self.goal and dealer_blackjack:
+            if dealer_sum == self.goal and len(self.hand_dealer) == 2:
                 game_state = GAME_STATE_LOSE_BLACKJACK
             else:
                 game_state = GAME_STATE_LOSE
         elif player_sum == dealer_sum:
-            if player_sum == self.goal and player_blackjack:
-                game_state = GAME_STATE_DRAW_BLACKJACK
+            if player_sum == self.goal:
+                if len(self.hand_player) == 2 and len(self.hand_dealer) == 2:
+                    game_state = GAME_STATE_DRAW_BLACKJACK
+                elif len(self.hand_player) == 2:
+                    game_state = GAME_STATE_WIN_BLACKJACK
+                elif len(self.hand_dealer) == 2:
+                    game_state = GAME_STATE_LOSE_BLACKJACK
+                else:
+                    game_state = GAME_STATE_DRAW
             else:
                 game_state = GAME_STATE_DRAW
-        elif player_sum > dealer_sum:
-            if player_sum == self.goal and player_blackjack:
-                game_state = GAME_STATE_WIN_BLACKJACK
-            else:
-                game_state = GAME_STATE_WIN
         
         self.end_game()
-        return game_state, self.hand_dealer, dealer_sum, dealer_blackjack
+        return game_state, self.hand_dealer, dealer_sum, dealer_soft
     
     # Посчитать сумму карт на руках
     def sum_hand(self, hand: list):

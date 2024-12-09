@@ -1,4 +1,4 @@
-('C:\\Users\\tikho\\Documents\\Programming\\yandex-liceum\\python-d2\\PROJECT-1-PYQT\\standalone\\build\\main\\PYZ-00.pyz',
+('C:\\Users\\tikho\\Documents\\Programming\\yandex-liceum\\python-d2\\PROJECT-1-PYQT\\standalone\\build\\blackjack\\PYZ-00.pyz',
  [('PyQt6',
    'C:\\Users\\tikho\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\PyQt6\\__init__.py',
    'PYMODULE'),
